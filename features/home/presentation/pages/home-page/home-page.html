@@ -1,0 +1,20 @@
+<div class="py-12 px-14 flex flex-wrap gap-5">
+  <!-- <app-card
+    [title]="exampleCard.title"
+    [description]="exampleCard.description"
+    [isFavorite]="exampleCard.isFavorite"
+    (onToggleFavorite)="onToggleFavorite($event)"
+  ></app-card> -->
+
+  @for (card of cards; track $index) {
+    <app-card
+      [id]="card.id"
+      [title]="card.title"
+      [description]="card.description"
+      [isFavorite]="card.isFavorite"
+      (onToggleFavorite)="onToggleFavorite($event)"
+      (onShowProduct)="onShowDetails($event)"
+    >
+    </app-card>
+  }
+</div>

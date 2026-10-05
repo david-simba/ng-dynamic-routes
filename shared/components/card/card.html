@@ -1,0 +1,33 @@
+<div class="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-lg">
+  <img
+    [src]="image()"
+    [alt]="title()"
+    class="h-48 w-full object-cover"
+  />
+
+  <div class="p-5">
+    <h2 class="text-xl font-bold text-gray-900">
+      {{ title() }}
+    </h2>
+
+    <p class="mt-2 text-sm text-gray-600">
+      {{ description() }}
+    </p>
+
+    <div class="flex space-x-3">
+      <button
+        class="mt-4 w-full rounded-lg px-4 py-2 bg-gray-100 transition"
+        (click)="onShowProduct.emit(id())"
+      >Ver Producto
+      </button>
+      <button
+        class="mt-4 w-full rounded-lg px-4 py-2 text-white transition"
+        (click)="onToggleFavorite.emit(id())"
+        [ngClass]="isFavorite() ? 'bg-gray-900 hover:bg-gray-700' : 'bg-gray-500 hover:bg-gray-600'"
+      >
+        {{ isFavorite() ? 'Quitar de favoritos' : 'Añadir a favoritos' }}
+      </button>
+    </div>
+
+  </div>
+</div>
